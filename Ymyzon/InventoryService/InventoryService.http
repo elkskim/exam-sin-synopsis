@@ -1,0 +1,31 @@
+@InventoryService_HostAddress = http://localhost:5219
+
+### Health Check
+GET {{InventoryService_HostAddress}}/api/inventory/health
+Accept: application/json
+
+###
+
+### Get All Inventory
+GET {{InventoryService_HostAddress}}/api/inventory/all
+Accept: application/json
+
+###
+
+### Get Specific Product Inventory - Laptop
+GET {{InventoryService_HostAddress}}/api/inventory/Laptop
+Accept: application/json
+
+###
+
+### Get Specific Product Inventory - Mouse
+GET {{InventoryService_HostAddress}}/api/inventory/Mouse
+Accept: application/json
+
+###
+
+### Get Specific Product Inventory - Keyboard
+GET {{InventoryService_HostAddress}}/api/inventory/Keyboard
+Accept: application/json
+
+###
