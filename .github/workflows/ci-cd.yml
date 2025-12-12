@@ -55,14 +55,14 @@ jobs:
         working-directory: ./Ymyzon
         run: |
           echo "⏱️  Building Docker images..."
-          docker-compose build --parallel
+          docker compose build --parallel
       
       # Step 7: Start services
       - name: Start services with Docker Compose
         working-directory: ./Ymyzon
         run: |
           echo "⏱️  Starting services..."
-          docker-compose up -d
+          docker compose up -d
           echo "⏱️  Waiting for services to be ready (30 seconds)..."
           sleep 30
       
@@ -117,18 +117,18 @@ jobs:
         working-directory: ./Ymyzon
         run: |
           echo "=== InventoryService Logs ==="
-          docker-compose logs inventory-service
+          docker compose logs inventory-service
           echo "=== OrderService Logs ==="
-          docker-compose logs order-service
+          docker compose logs order-service
           echo "=== RabbitMQ Logs ==="
-          docker-compose logs rabbitmq
+          docker compose logs rabbitmq
       
       # Step 11: Cleanup
       - name: Cleanup containers
         if: always()
         working-directory: ./Ymyzon
         run: |
-          docker-compose down -v
+          docker compose down -v
       
       # Step 12: Report success
       - name: Report success

@@ -47,7 +47,7 @@ jobs:
         run: |
           DOCKER_START=$(date +%s)
           echo "Building Docker images..."
-          docker-compose build
+          docker compose build
           DOCKER_END=$(date +%s)
           DOCKER_TIME=$((DOCKER_END - DOCKER_START))
           echo "DOCKER_TIME=$DOCKER_TIME" >> $GITHUB_OUTPUT
@@ -60,7 +60,7 @@ jobs:
         run: |
           DEPLOY_START=$(date +%s)
           echo "Starting services..."
-          docker-compose up -d
+          docker compose up -d
           sleep 30
           DEPLOY_END=$(date +%s)
           DEPLOY_TIME=$((DEPLOY_END - DEPLOY_START))
@@ -136,7 +136,7 @@ jobs:
       - name: Cleanup
         if: always()
         working-directory: ./Ymyzon
-        run: docker-compose down -v
+        run: docker compose down -v
       
       # Create performance artifact
       - name: Save performance data
