@@ -27,4 +27,11 @@ The workflows are already in place at the repository root and will trigger autom
 
 - `GITHUB_ACTIONS_GUIDE.md` - Detailed usage guide
 - `RESULTS_SUMMARY.md` - Performance comparison data
-
+
+## Purpose
+
+These workflows support the synopsis by providing empirical CI/CD performance data comparing:
+- Manual deployment (196s)
+- Local Docker automation (54s)  
+- GitHub Actions CI/CD (~120s)
+

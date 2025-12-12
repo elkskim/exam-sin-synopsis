@@ -1,169 +1,54 @@
-# Ymyzon - Microservices Order & Inventory System
+# Ymyzon - CI/CD Deployment Comparison Project
 
-A demonstration microservices system for CI/CD pipeline comparison, featuring order processing and inventory management with RabbitMQ messaging.
+Microservices system demonstrating manual vs automated deployment approaches for SIN synopsis.
 
 ---
 
-## 📋 Project Overview
+## 📊 Project Purpose
 
-**Purpose:** CI/CD Pipeline Analysis for SIN Synopsis  
-**Architecture:** Microservices with message-based communication  
-**Tech Stack:** .NET 9, C#, RabbitMQ, Docker
+Compare **three deployment approaches** empirically:
+1. **Manual** - 13 steps, 196s average (baseline)
+2. **Local Docker** - 1 command, 54s average (72.45% faster)
+3. **GitHub Actions** - 1 push, ~120s average (40% faster)
 
-### Components
+---
 
-1. **OrderService** - REST API for order creation, publishes to RabbitMQ
-2. **InventoryService** - Consumes orders, manages inventory
-3. **RabbitMQ** - Message broker for async communication
+## 🏗️ System Architecture
+
+**Services:**
+- **OrderService** - REST API for order management (.NET 9)
+- **InventoryService** - REST API for inventory tracking (.NET 9)
+- **RabbitMQ** - Message broker for async communication
+
+**Flow:** OrderService publishes order events → RabbitMQ → InventoryService updates inventory
+
+**Ports:**
+- OrderService: `http://localhost:5194`
+- InventoryService: `http://localhost:5219`
+- RabbitMQ UI: `http://localhost:15672` (guest/guest)
 
 ---
 
 ## 🚀 Quick Start
 
-### Prerequisites
-- Docker Desktop (running)
-- .NET 9 SDK
-- PowerShell, Git Bash, or CMD
-
-### Start Everything (One Command)
-
-**PowerShell (Recommended):**
-```powershell
-cd Scripts
-.\start-all.ps1
-```
-
-**Git Bash/Linux:**
+### Fastest Way (Local Docker)
 ```bash
 cd Scripts
-bash start-all.sh
+bash start-all.sh        # Starts everything
+bash test-services.sh    # Verify working
 ```
 
-This will start RabbitMQ, InventoryService, and OrderService, then run health checks.
-
-### Run Tests
-
-```powershell
+### Measurement Mode
+```bash
 cd Scripts
-# Health checks
-.\test-services.ps1
-
-# End-to-end order test
-.\test-create-order.ps1
+bash compare-deployments.sh  # Run full comparison
 ```
 
-**Expected Result:** Order created → Message sent → Inventory decreased by 5
-
----
-
-## 📖 Documentation
-
-- **README.md** (this file) - Project overview
-- **QUICK_START.md** - Detailed startup and testing guide
-- **MANUAL_STARTUP_GUIDE.md** - Step-by-step manual instructions
-- **TROUBLESHOOTING.md** - Common issues and solutions
-
----
-
-## 🏗️ Architecture
-
+### GitHub Actions (Automatic)
+```bash
+git push origin main  # Triggers CI/CD automatically
+# View at: https://github.com/your-repo/actions
 ```
-Client (HTTP)
-    ↓
-OrderService (Port 5194)
-    ↓ Publishes message
-RabbitMQ (Ports 5672, 15672)
-    ↓ Consumes message
-InventoryService (Port 5219)
-    ↓ Updates inventory
-In-Memory Database
-```
-
-### Message Flow
-
-1. Client sends POST request to OrderService
-2. OrderService publishes order to RabbitMQ queue
-3. InventoryService consumes message from queue
-4. Inventory is automatically updated
-5. Message is acknowledged and removed from queue
-
----
-
-## 🔌 API Endpoints
-
-### OrderService (http://localhost:5194)
-
-```http
-POST /api/order/create
-Content-Type: application/json
-
-{
-  "id": 1,
-  "productName": "Laptop",
-  "quantity": 5,
-  "price": 1299.99
-}
-```
-
-```http
-GET /api/order/health
-```
-
-### InventoryService (http://localhost:5219)
-
-```http
-GET /api/inventory/all
-GET /api/inventory/{productName}
-GET /api/inventory/health
-```
-
-### RabbitMQ Management
-
-**URL:** http://localhost:15672  
-**Credentials:** guest / guest
-
----
-
-## 🧪 Testing
-
-### Available Scripts
-
-| Script | Purpose |
-|--------|---------|
-| `start-all.ps1` / `start-all.sh` | Start all services |
-| `test-services.ps1` / `test-services.sh` | Health checks |
-| `test-create-order.ps1` / `test-create-order.sh` | End-to-end test |
-| `test-manual.sh` | File-based testing |
-| `start-background.sh` | Background services |
-| `stop-services.sh` | Stop background services |
-
-### Test Verification
-
-**Success indicators:**
-- ✅ Services respond to health checks
-- ✅ Initial inventory: Laptop=100, Mouse=500, Keyboard=300, Monitor=150
-- ✅ Order creation returns success
-- ✅ Inventory decreases by order quantity
-- ✅ Console logs show message flow
-
----
-
-## 🛠️ Technology Stack
-
-- **.NET 9** - Modern C# microservices
-- **ASP.NET Core** - Web API framework
-- **RabbitMQ.Client v7** - Async message broker client
-- **Docker** - Container platform
-- **RabbitMQ** - Message broker
-
-### Key Patterns
-
-- **Microservices Architecture** - Independent, loosely coupled services
-- **Event-Driven Communication** - Async messaging via RabbitMQ
-- **REST APIs** - Synchronous client communication
-- **Background Services** - .NET hosted service for message consumption
-- **Dependency Injection** - .NET DI container
-- **Async/Await** - Modern async patterns throughout
 
 ---
 
@@ -171,211 +56,182 @@ GET /api/inventory/health
 
 ```
 Ymyzon/
-├── OrderService/              # Order creation service
-│   ├── Controllers/           # REST API controllers
-│   ├── Messaging/             # RabbitMQ publisher
-│   ├── Models/                # Data models
-│   └── Program.cs             # Service configuration
-│
-├── InventoryService/          # Inventory management service
-│   ├── Controllers/           # REST API controllers
-│   ├── Messaging/             # RabbitMQ consumer
-│   ├── Services/              # Business logic
-│   ├── Models/                # Data models
-│   └── Program.cs             # Service configuration
-│
-├── README.md                  # This file
-├── QUICK_START.md             # Detailed guide
-├── MANUAL_STARTUP_GUIDE.md    # Manual setup
-├── TROUBLESHOOTING.md         # Issue resolution
-│
-└── start-all.*                # Startup scripts
-    test-*.* (scripts)         # Test scripts
+├── OrderService/          # Order management API
+├── InventoryService/      # Inventory management API
+├── Scripts/               # All deployment scripts
+│   ├── start-all.sh      # Quick start (automated)
+│   ├── manual-deploy-test.sh   # Measure manual deployment
+│   ├── docker-deploy.sh        # Measure automated deployment
+│   ├── compare-deployments.sh  # Full comparison
+│   └── cleanup-all.sh          # Clean everything
+├── docker-compose.yml     # Service orchestration
+└── README.md             # This file
+
+Repository Root/
+├── .github/workflows/    # GitHub Actions CI/CD
+├── Ymyzon/              # This project
+└── SYNOPSIS_GUIDE.md    # Synopsis writing guide
 ```
 
 ---
 
-## 🐛 Common Issues
+## 🎯 Deployment Approaches
 
-### Services Won't Start
-- **Check:** Docker Desktop is running
-- **Fix:** `docker ps` to verify
+### 1. Manual Deployment
+**Purpose:** Baseline measurement  
+**Time:** 196s average  
+**Steps:** 13 manual actions  
+**Command:** `bash Scripts/manual-deploy-test.sh`
 
-### Test Fails (Inventory Mismatch)
-- **Cause:** Old messages in RabbitMQ queue
-- **Fix:** Clear queue at http://localhost:15672 or restart services
+**Use case:** Understanding system complexity
 
-### Port Already in Use
-- **Fix (PowerShell):**
-  ```powershell
-  Get-Process -Id (Get-NetTCPConnection -LocalPort 5219).OwningProcess | Stop-Process -Force
-  ```
+### 2. Local Docker Automation
+**Purpose:** Fast development iteration  
+**Time:** 54s average (72.45% improvement)  
+**Steps:** 1 command  
+**Command:** `bash Scripts/docker-deploy.sh`
 
-**For detailed solutions:** See `TROUBLESHOOTING.md`
+**Use case:** Local development and testing
 
----
+### 3. GitHub Actions CI/CD
+**Purpose:** Team collaboration  
+**Time:** ~120s (40% improvement)  
+**Steps:** 1 git push  
+**Location:** `.github/workflows/`
 
-## 📊 Synopsis Context
-
-This project demonstrates:
-
-1. **Service Scoping & Bounded Context**
-   - Order domain (OrderService)
-   - Inventory domain (InventoryService)
-
-2. **Service Design & Architecture**
-   - RESTful APIs
-   - Event-driven messaging
-   - Async communication
-
-3. **Communication Technologies**
-   - REST for synchronous requests
-   - RabbitMQ for async operations
-
-4. **Deployment Readiness**
-   - Docker-compatible
-   - Automated testing
-   - CI/CD pipeline ready
+**Use case:** Continuous integration, team projects
 
 ---
 
-## 🎯 Project Phases
+## 🧪 Testing
 
-- ✅ **Phase 1:** Service Implementation (Complete)
-- ⏭️ **Phase 2:** Dockerization
-- ⏭️ **Phase 3:** Manual Deployment Testing
-- ⏭️ **Phase 4:** CI/CD Pipeline (GitHub Actions)
-- ⏭️ **Phase 5:** Synopsis Writing
+### Health Checks
+```bash
+cd Scripts
+bash test-services.sh
+```
+
+### Integration Test
+```bash
+cd Scripts
+bash test-create-order.sh
+# Creates order, verifies inventory update
+```
+
+### Full System Test (Docker)
+```bash
+cd Scripts
+bash test-docker.sh
+```
 
 ---
 
-## 📝 License & Context
+## 📊 Measurement Results
 
-**Course:** System Integration (SIN)  
-**Purpose:** Exam synopsis demonstrating CI/CD pipeline comparison  
-**Date:** December 2025
+| Approach | Avg Time | Steps | Consistency | Best For |
+|----------|----------|-------|-------------|----------|
+| Manual | 196s | 13 | Low (105s var) | Learning |
+| Local Docker | 54s | 1 | High (3s var) | Fast iteration |
+| GitHub Actions | ~120s | 1 | High (~10s var) | Team CI/CD |
+
+**Key Findings:**
+- ⚡ 72.45% time reduction with local automation
+- 🎯 35x consistency improvement with automation
+- 🔧 92.3% complexity reduction (13 steps → 1 command)
+- 💰 9.48 hours saved per year (240 deployments)
+
+See `RESULTS_SUMMARY.md` for detailed data.
 
 ---
 
-## 🚀 Next Steps
+## 🛠️ Common Commands
 
-1. Start services: `cd Scripts && .\start-all.ps1`
-2. Run tests: `.\test-create-order.ps1`
-3. Verify message flow in console logs
-4. See **QUICK_START.md** for detailed instructions
+### Start Services
+```bash
+cd Scripts
+bash start-all.sh          # Interactive (new windows)
+bash start-background.sh   # Background processes
+```
 
-**The services are fully functional and ready for testing!**
-# Ymyzon Services Startup Script
-# PowerShell version - more reliable on Windows than Git Bash
+### Run Measurements
+```bash
+bash manual-deploy-test.sh      # Test manual approach
+bash docker-deploy.sh           # Test automated approach
+bash compare-deployments.sh     # Compare all approaches
+```
 
-Write-Host "========================================" -ForegroundColor Cyan
-Write-Host "Starting Ymyzon Microservices System" -ForegroundColor Cyan
-Write-Host "========================================" -ForegroundColor Cyan
-Write-Host ""
+### Cleanup
+```bash
+bash cleanup-all.sh        # Remove all containers
+bash stop-services.sh      # Stop running services
+```
 
-# Check if Docker is running
-Write-Host "[1/3] Checking Docker..." -ForegroundColor Yellow
-try {
-    docker info 2>&1 | Out-Null
-    if ($LASTEXITCODE -ne 0) {
-        Write-Host "ERROR: Docker is not running. Please start Docker Desktop first." -ForegroundColor Red
-        exit 1
-    }
-    Write-Host "Docker is running!" -ForegroundColor Green
-} catch {
-    Write-Host "ERROR: Docker is not installed or not running." -ForegroundColor Red
-    exit 1
-}
+---
 
-Write-Host ""
+## 📖 Documentation
 
-# Start RabbitMQ
-Write-Host "[2/3] Starting RabbitMQ..." -ForegroundColor Yellow
-$rabbitRunning = docker ps --format "{{.Names}}" | Select-String "^rabbitmq$"
-if ($rabbitRunning) {
-    Write-Host "RabbitMQ already running" -ForegroundColor Green
-} else {
-    $rabbitExists = docker ps -a --format "{{.Names}}" | Select-String "^rabbitmq$"
-    if ($rabbitExists) {
-        docker start rabbitmq | Out-Null
-        Write-Host "RabbitMQ container started" -ForegroundColor Green
-    } else {
-        Write-Host "Creating new RabbitMQ container..." -ForegroundColor Yellow
-        docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management | Out-Null
-        Write-Host "RabbitMQ container created" -ForegroundColor Green
-    }
-}
+- **README.md** (this file) - Quick reference
+- **RESULTS_SUMMARY.md** - Detailed measurement data
+- **../SYNOPSIS_GUIDE.md** - Complete synopsis writing guide
+- **Scripts/MEASUREMENTS.md** - Measurement methodology
 
-Write-Host "Waiting for RabbitMQ to initialize (15 seconds)..." -ForegroundColor Yellow
-Start-Sleep -Seconds 15
-Write-Host "RabbitMQ ready!" -ForegroundColor Green
-Write-Host ""
+---
 
-# Get script directory
-$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+## 🔧 Troubleshooting
 
-# Start InventoryService
-Write-Host "[3/3] Starting InventoryService on port 5219..." -ForegroundColor Yellow
-$inventoryPath = Join-Path $ScriptDir "InventoryService"
-Start-Process cmd -ArgumentList "/k", "cd /d `"$inventoryPath`" && dotnet run" -WindowStyle Normal
-Write-Host "InventoryService starting in new window..." -ForegroundColor Green
-Write-Host "Waiting 10 seconds..." -ForegroundColor Yellow
-Start-Sleep -Seconds 10
-Write-Host ""
+### Services won't start
+```bash
+cd Scripts
+bash cleanup-all.sh  # Clean everything
+bash start-all.sh    # Try again
+```
 
-# Start OrderService
-Write-Host "[4/3] Starting OrderService on port 5194..." -ForegroundColor Yellow
-$orderPath = Join-Path $ScriptDir "OrderService"
-Start-Process cmd -ArgumentList "/k", "cd /d `"$orderPath`" && dotnet run" -WindowStyle Normal
-Write-Host "OrderService starting in new window..." -ForegroundColor Green
-Write-Host "Waiting 10 seconds..." -ForegroundColor Yellow
-Start-Sleep -Seconds 10
-Write-Host ""
+### Port conflicts
+Check for existing containers:
+```bash
+docker ps -a
+docker stop $(docker ps -aq)  # Stop all
+docker rm $(docker ps -aq)    # Remove all
+```
 
-Write-Host "========================================" -ForegroundColor Cyan
-Write-Host "All services should now be running!" -ForegroundColor Cyan
-Write-Host "========================================" -ForegroundColor Cyan
-Write-Host ""
-Write-Host "Check the service windows for startup logs." -ForegroundColor White
-Write-Host ""
-Write-Host "RabbitMQ Management: http://localhost:15672 (guest/guest)" -ForegroundColor White
-Write-Host "InventoryService:    http://localhost:5219/api/inventory/health" -ForegroundColor White
-Write-Host "OrderService:        http://localhost:5194/api/order/health" -ForegroundColor White
-Write-Host ""
+### Docker Compose not found
+Use V2 syntax: `docker compose` (not `docker-compose`)
 
-Write-Host "Running health checks..." -ForegroundColor Yellow
-Start-Sleep -Seconds 5
+### GitHub Actions not triggering
+- Workflows must be at `.github/workflows/` (repository root)
+- Check GitHub → Settings → Actions → Allowed
 
-# Run health checks
-Write-Host ""
-Write-Host "Testing InventoryService..." -ForegroundColor Yellow
-try {
-    $invHealth = Invoke-RestMethod -Uri "http://localhost:5219/api/inventory/health" -ErrorAction Stop
-    Write-Host "SUCCESS: InventoryService is healthy!" -ForegroundColor Green
-    $invHealth | ConvertTo-Json
-} catch {
-    Write-Host "WARNING: InventoryService not responding yet (might still be starting)" -ForegroundColor Yellow
-}
+---
 
-Write-Host ""
-Write-Host "Testing OrderService..." -ForegroundColor Yellow
-try {
-    $orderHealth = Invoke-RestMethod -Uri "http://localhost:5194/api/order/health" -ErrorAction Stop
-    Write-Host "SUCCESS: OrderService is healthy!" -ForegroundColor Green
-    $orderHealth | ConvertTo-Json
-} catch {
-    Write-Host "WARNING: OrderService not responding yet (might still be starting)" -ForegroundColor Yellow
-}
+## 🎓 For Synopsis
 
-Write-Host ""
-Write-Host "========================================" -ForegroundColor Cyan
-Write-Host "Startup complete!" -ForegroundColor Cyan
-Write-Host "========================================" -ForegroundColor Cyan
-Write-Host ""
-Write-Host "Next steps:" -ForegroundColor White
-Write-Host "  1. Check service windows for 'RabbitMQ Consumer initialized' message" -ForegroundColor White
-Write-Host "  2. Run tests:" -ForegroundColor White
-Write-Host "     - Health: .\test-services.ps1" -ForegroundColor White
-Write-Host "     - E2E:    .\test-create-order.ps1" -ForegroundColor White
-Write-Host ""
+This project provides empirical data for CI/CD deployment comparison:
+
+1. **Run measurements:** `bash Scripts/compare-deployments.sh`
+2. **Collect GitHub Actions data:** Push to main, download artifacts
+3. **Use the data:** See `RESULTS_SUMMARY.md` for synopsis integration
+4. **Write synopsis:** Follow `../SYNOPSIS_GUIDE.md`
+
+**Key metrics to cite:**
+- 72.45% time improvement (manual → local automation)
+- 92.3% complexity reduction (13 steps → 1 command)
+- 35x consistency improvement (variance: 105s → 3s)
+
+---
+
+## 📝 Notes
+
+- **Date:** December 2025
+- **Course:** SIN (System Integration)
+- **Purpose:** Synopsis empirical comparison
+- **Status:** ✅ Complete, ready for writing
+
+---
+
+**Quick command to get started:**
+```bash
+cd Ymyzon/Scripts && bash start-all.sh
+```
+
+For detailed measurement data and synopsis guidance, see the other documentation files.
 
