@@ -1,0 +1,58 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.6 Chrome/138.0.7204.100 Electron/37.2.3 Safari/537.36" version="28.0.6">
+  <diagram name="Page-1" id="pOne9hay8RuEw4r7c5Wt">
+    <mxGraphModel dx="901" dy="812" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="iigVuZYqTX1mo3dEvu2U-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="760" height="720" as="geometry" />
+        </mxCell>
+        <mxCell id="iigVuZYqTX1mo3dEvu2U-3" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Ymyzon&lt;/h1&gt;&lt;p&gt;Distributed system for Ymyzon, buy/order wares and have the inventory be updated&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="50" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="iigVuZYqTX1mo3dEvu2U-4" value="Order&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;-system&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" vertex="1" parent="1">
+          <mxGeometry x="430" y="200" width="334" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="iigVuZYqTX1mo3dEvu2U-6" value="Inventory-system" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="200" width="334" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="iigVuZYqTX1mo3dEvu2U-11" value="SKU" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="470" width="160" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="iigVuZYqTX1mo3dEvu2U-12" value="A singular unit encapsulating a product" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="iigVuZYqTX1mo3dEvu2U-11">
+          <mxGeometry x="15" y="30" width="130" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="iigVuZYqTX1mo3dEvu2U-13" value="RABBITMQ" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="295" y="650" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="iigVuZYqTX1mo3dEvu2U-14" value="Communication between" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="iigVuZYqTX1mo3dEvu2U-13">
+          <mxGeometry x="10" y="35" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="iigVuZYqTX1mo3dEvu2U-17" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="iigVuZYqTX1mo3dEvu2U-6" target="iigVuZYqTX1mo3dEvu2U-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="410" y="440" as="sourcePoint" />
+            <mxPoint x="460" y="390" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="237" y="700" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iigVuZYqTX1mo3dEvu2U-18" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="iigVuZYqTX1mo3dEvu2U-13" target="iigVuZYqTX1mo3dEvu2U-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="410" y="440" as="sourcePoint" />
+            <mxPoint x="460" y="390" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="597" y="700" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iigVuZYqTX1mo3dEvu2U-19" value="Order" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="470" width="165" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="iigVuZYqTX1mo3dEvu2U-20" value="An order, containing info and SKUs" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="600" y="520" width="120" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
