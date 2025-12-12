@@ -1,0 +1,173 @@
+name: CI/CD with Performance Measurement
+
+on:
+  push:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  measure-cicd-performance:
+    name: Measure CI/CD Deployment Time
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      
+      # MEASUREMENT START
+      - name: Start deployment timer
+        id: start_time
+        run: echo "START_TIME=$(date +%s)" >> $GITHUB_OUTPUT
+      
+      # Phase 1: Build
+      - name: Build services
+        id: build_phase
+        working-directory: ./Ymyzon
+        run: |
+          BUILD_START=$(date +%s)
+          echo "Building services..."
+          dotnet restore InventoryService/InventoryService.csproj
+          dotnet restore OrderService/OrderService.csproj
+          dotnet build InventoryService/InventoryService.csproj --no-restore -c Release
+          dotnet build OrderService/OrderService.csproj --no-restore -c Release
+          BUILD_END=$(date +%s)
+          BUILD_TIME=$((BUILD_END - BUILD_START))
+          echo "BUILD_TIME=$BUILD_TIME" >> $GITHUB_OUTPUT
+          echo "✅ Build completed in ${BUILD_TIME}s"
+      
+      # Phase 2: Docker build
+      - name: Build Docker images
+        id: docker_phase
+        working-directory: ./Ymyzon
+        run: |
+          DOCKER_START=$(date +%s)
+          echo "Building Docker images..."
+          docker-compose build
+          DOCKER_END=$(date +%s)
+          DOCKER_TIME=$((DOCKER_END - DOCKER_START))
+          echo "DOCKER_TIME=$DOCKER_TIME" >> $GITHUB_OUTPUT
+          echo "✅ Docker build completed in ${DOCKER_TIME}s"
+      
+      # Phase 3: Deploy
+      - name: Deploy services
+        id: deploy_phase
+        working-directory: ./Ymyzon
+        run: |
+          DEPLOY_START=$(date +%s)
+          echo "Starting services..."
+          docker-compose up -d
+          sleep 30
+          DEPLOY_END=$(date +%s)
+          DEPLOY_TIME=$((DEPLOY_END - DEPLOY_START))
+          echo "DEPLOY_TIME=$DEPLOY_TIME" >> $GITHUB_OUTPUT
+          echo "✅ Deployment completed in ${DEPLOY_TIME}s"
+      
+      # Phase 4: Test
+      - name: Run health checks
+        id: test_phase
+        working-directory: ./Ymyzon
+        run: |
+          TEST_START=$(date +%s)
+          echo "Running health checks..."
+          curl -f http://localhost:5219/api/inventory/health
+          curl -f http://localhost:5194/api/order/health
+          TEST_END=$(date +%s)
+          TEST_TIME=$((TEST_END - TEST_START))
+          echo "TEST_TIME=$TEST_TIME" >> $GITHUB_OUTPUT
+          echo "✅ Tests completed in ${TEST_TIME}s"
+      
+      # Phase 5: Integration test
+      - name: Run integration test
+        working-directory: ./Ymyzon
+        run: |
+          echo "Running integration test..."
+          BEFORE=$(curl -s http://localhost:5219/api/inventory/Laptop | jq -r '.availableQuantity')
+          curl -X POST http://localhost:5194/api/order/create \
+            -H "Content-Type: application/json" \
+            -d '{"id":999,"productName":"Laptop","quantity":5,"price":1299.99}'
+          sleep 5
+          AFTER=$(curl -s http://localhost:5219/api/inventory/Laptop | jq -r '.availableQuantity')
+          DIFF=$((BEFORE - AFTER))
+          if [ $DIFF -eq 5 ]; then
+            echo "✅ Integration test PASSED"
+          else
+            echo "❌ Integration test FAILED"
+            exit 1
+          fi
+      
+      # MEASUREMENT END
+      - name: Calculate total time
+        id: end_time
+        run: |
+          END_TIME=$(date +%s)
+          START_TIME=${{ steps.start_time.outputs.START_TIME }}
+          TOTAL_TIME=$((END_TIME - START_TIME))
+          echo "TOTAL_TIME=$TOTAL_TIME" >> $GITHUB_OUTPUT
+          echo "⏱️  Total pipeline time: ${TOTAL_TIME}s"
+      
+      # Report metrics
+      - name: Report performance metrics
+        run: |
+          echo "============================================"
+          echo "CI/CD Pipeline Performance Report"
+          echo "============================================"
+          echo ""
+          echo "Phase Breakdown:"
+          echo "  Build:       ${{ steps.build_phase.outputs.BUILD_TIME }}s"
+          echo "  Docker:      ${{ steps.docker_phase.outputs.DOCKER_TIME }}s"
+          echo "  Deploy:      ${{ steps.deploy_phase.outputs.DEPLOY_TIME }}s"
+          echo "  Test:        ${{ steps.test_phase.outputs.TEST_TIME }}s"
+          echo ""
+          echo "Total Time:    ${{ steps.end_time.outputs.TOTAL_TIME }}s"
+          echo "============================================"
+          echo ""
+          echo "Comparison to local deployment:"
+          echo "  Manual:      196s (baseline)"
+          echo "  Local Auto:  54s (72% faster than manual)"
+          echo "  GitHub CI/CD: ${{ steps.end_time.outputs.TOTAL_TIME }}s"
+          echo ""
+      
+      # Cleanup
+      - name: Cleanup
+        if: always()
+        working-directory: ./Ymyzon
+        run: docker-compose down -v
+      
+      # Create performance artifact
+      - name: Save performance data
+        if: always()
+        run: |
+          cat > cicd-performance.txt << EOF
+          GitHub Actions CI/CD Performance Report
+          ========================================
+          Date: $(date)
+          Commit: ${{ github.sha }}
+          Branch: ${{ github.ref_name }}
+          
+          Phase Breakdown:
+          - Build:       ${{ steps.build_phase.outputs.BUILD_TIME }}s
+          - Docker:      ${{ steps.docker_phase.outputs.DOCKER_TIME }}s
+          - Deploy:      ${{ steps.deploy_phase.outputs.DEPLOY_TIME }}s
+          - Test:        ${{ steps.test_phase.outputs.TEST_TIME }}s
+          
+          Total Time:    ${{ steps.end_time.outputs.TOTAL_TIME }}s
+          
+          Comparison:
+          - Manual deployment:      196s (baseline)
+          - Local Docker automation: 54s (72.45% improvement)
+          - GitHub Actions CI/CD:   ${{ steps.end_time.outputs.TOTAL_TIME }}s
+          EOF
+      
+      - name: Upload performance report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cicd-performance-report
+          path: cicd-performance.txt
+          retention-days: 90
+
