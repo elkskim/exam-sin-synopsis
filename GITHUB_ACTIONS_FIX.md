@@ -44,9 +44,29 @@ git commit -m "Move GitHub Actions workflows to repository root (fix trigger loc
 git push origin main
 ```
 
+## Additional Fix: Docker Compose Command
+
+### Problem 2: `docker-compose: command not found`
+GitHub Actions runners use **Docker Compose V2** (`docker compose` with a space), not V1 (`docker-compose` with a hyphen).
+
+### Solution:
+Changed all instances from:
+```bash
+docker-compose build    # ❌ V1 (deprecated)
+docker-compose up -d    # ❌ V1 (deprecated)
+docker-compose down -v  # ❌ V1 (deprecated)
+```
+
+To:
+```bash
+docker compose build    # ✅ V2 (current)
+docker compose up -d    # ✅ V2 (current)
+docker compose down -v  # ✅ V2 (current)
+```
+
 ## Status: ✅ FIXED
 
-The push to main should have **automatically triggered both workflows**!
+Both issues resolved and pushed. Workflows should now run successfully!
 
 ## How to Verify
 
