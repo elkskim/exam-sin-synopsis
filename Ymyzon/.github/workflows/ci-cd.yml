@@ -1,0 +1,150 @@
+name: Ymyzon CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:  # Manual trigger for testing
+
+env:
+  DOCKER_BUILDKIT: 1
+
+jobs:
+  build-and-test:
+    name: Build, Test & Deploy
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      # Step 2: Set up .NET
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      
+      # Step 3: Restore dependencies
+      - name: Restore dependencies
+        working-directory: ./Ymyzon
+        run: |
+          echo "⏱️  Starting dependency restoration..."
+          dotnet restore InventoryService/InventoryService.csproj
+          dotnet restore OrderService/OrderService.csproj
+      
+      # Step 4: Build services
+      - name: Build services
+        working-directory: ./Ymyzon
+        run: |
+          echo "⏱️  Building InventoryService..."
+          dotnet build InventoryService/InventoryService.csproj --no-restore --configuration Release
+          echo "⏱️  Building OrderService..."
+          dotnet build OrderService/OrderService.csproj --no-restore --configuration Release
+      
+      # Step 5: Run unit tests (if any)
+      - name: Run tests
+        working-directory: ./Ymyzon
+        run: |
+          echo "✅ Tests would run here (none implemented yet)"
+          # dotnet test --no-build --configuration Release
+      
+      # Step 6: Build Docker images
+      - name: Build Docker images
+        working-directory: ./Ymyzon
+        run: |
+          echo "⏱️  Building Docker images..."
+          docker-compose build --parallel
+      
+      # Step 7: Start services
+      - name: Start services with Docker Compose
+        working-directory: ./Ymyzon
+        run: |
+          echo "⏱️  Starting services..."
+          docker-compose up -d
+          echo "⏱️  Waiting for services to be ready (30 seconds)..."
+          sleep 30
+      
+      # Step 8: Health checks
+      - name: Run health checks
+        working-directory: ./Ymyzon
+        run: |
+          echo "🏥 Checking InventoryService health..."
+          curl -f http://localhost:5219/api/inventory/health || exit 1
+          echo "✅ InventoryService is healthy"
+          
+          echo "🏥 Checking OrderService health..."
+          curl -f http://localhost:5194/api/order/health || exit 1
+          echo "✅ OrderService is healthy"
+      
+      # Step 9: Integration tests
+      - name: Run integration tests
+        working-directory: ./Ymyzon
+        run: |
+          echo "🧪 Running integration test..."
+          
+          # Get initial inventory
+          BEFORE=$(curl -s http://localhost:5219/api/inventory/Laptop | jq -r '.availableQuantity')
+          echo "📦 Initial Laptop inventory: $BEFORE"
+          
+          # Create order
+          curl -X POST http://localhost:5194/api/order/create \
+            -H "Content-Type: application/json" \
+            -d '{"id":999,"productName":"Laptop","quantity":5,"price":1299.99}'
+          echo "📝 Order created for 5 Laptops"
+          
+          # Wait for message processing
+          sleep 5
+          
+          # Check updated inventory
+          AFTER=$(curl -s http://localhost:5219/api/inventory/Laptop | jq -r '.availableQuantity')
+          echo "📦 Updated Laptop inventory: $AFTER"
+          
+          # Verify change
+          DIFF=$((BEFORE - AFTER))
+          if [ $DIFF -eq 5 ]; then
+            echo "✅ Integration test PASSED! Inventory correctly reduced by 5"
+            exit 0
+          else
+            echo "❌ Integration test FAILED! Expected -5, got -$DIFF"
+            exit 1
+          fi
+      
+      # Step 10: Show logs on failure
+      - name: Show logs on failure
+        if: failure()
+        working-directory: ./Ymyzon
+        run: |
+          echo "=== InventoryService Logs ==="
+          docker-compose logs inventory-service
+          echo "=== OrderService Logs ==="
+          docker-compose logs order-service
+          echo "=== RabbitMQ Logs ==="
+          docker-compose logs rabbitmq
+      
+      # Step 11: Cleanup
+      - name: Cleanup containers
+        if: always()
+        working-directory: ./Ymyzon
+        run: |
+          docker-compose down -v
+      
+      # Step 12: Report success
+      - name: Report success
+        if: success()
+        run: |
+          echo "============================================"
+          echo "✅ CI/CD Pipeline completed successfully!"
+          echo "============================================"
+          echo ""
+          echo "Summary:"
+          echo "  ✓ Dependencies restored"
+          echo "  ✓ Services built"
+          echo "  ✓ Docker images created"
+          echo "  ✓ Services deployed"
+          echo "  ✓ Health checks passed"
+          echo "  ✓ Integration tests passed"
+          echo ""
+          echo "Deployment verified and ready for production!"
+
