@@ -6,7 +6,7 @@ using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using InventoryService.Services;
 
-public class RabbitMQConsumer : BackgroundService
+public class RabbitMQConsumer : BackgroundService, IAsyncDisposable
 {
     private IConnection? _connection;
     private IChannel? _channel;
@@ -92,11 +92,11 @@ public class RabbitMQConsumer : BackgroundService
         }
     }
 
-    public override async ValueTask DisposeAsync()
+    public async ValueTask DisposeAsync()
     {
         if (_channel != null) await _channel.CloseAsync();
         if (_connection != null) await _connection.CloseAsync();
-        await base.DisposeAsync();
+        GC.SuppressFinalize(this);
     }
 
     private class OrderMessage
