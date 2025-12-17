@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.4)  17 DEC 2025 15:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.4)  17 DEC 2025 18:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -306,6 +306,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip54
 )
+Package hyperref Info: Option `colorlinks' set `true' on input line 15.
+
 (C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
@@ -629,24 +631,24 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 \exam-sin-synopsis\out\main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
 
 (C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -672,8 +674,15 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
-))
-Package hyperref Info: Link coloring OFF on input line 28.
+)) (C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+)
+Package hyperref Info: Link coloring ON on input line 35.
 
 (C:/Users\elksk\Documents\rimeligt legit skolesager\Programmeringsprojekter\SIN
 \exam-sin-synopsis\out\main.out)
@@ -734,8 +743,8 @@ Package biblatex Info: ... file 'main.bbl' found.
 
 (C:/Users\elksk\Documents\rimeligt legit skolesager\Programmeringsprojekter\SIN
 \exam-sin-synopsis\out\main.bbl)
-Package biblatex Info: Reference section=0 on input line 28.
-Package biblatex Info: Reference segment=0 on input line 28.
+Package biblatex Info: Reference section=0 on input line 35.
+Package biblatex Info: Reference segment=0 on input line 35.
  [1
 
 {C:/Users/elksk/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
@@ -757,7 +766,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.58 \newpage
+l.65 \newpage
               [1]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -770,8 +779,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <Assets/Images/DORA figure 1.jpg, id=126, 610.53094pt x 365.86688pt>
 File: Assets/Images/DORA figure 1.jpg Graphic file (type jpg)
 <use Assets/Images/DORA figure 1.jpg>
-Package pdftex.def Info: Assets/Images/DORA figure 1.jpg  used on input line 11
-5.
+Package pdftex.def Info: Assets/Images/DORA figure 1.jpg  used on input line 12
+2.
 (pdftex.def)             Requested size: 364.19667pt x 218.25455pt.
 
 
@@ -863,10 +872,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 18607 strings out of 467871
- 331298 string characters out of 5418376
- 1186951 words of memory out of 5000000
- 47245 multiletter control sequences out of 15000+600000
+ 18679 strings out of 467871
+ 332776 string characters out of 5418376
+ 1188364 words of memory out of 5000000
+ 47310 multiletter control sequences out of 15000+600000
  636765 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,11n,79p,695b,1868s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -885,7 +894,7 @@ b><C:/Users/elksk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmtt10.pfb><C:/Users/elksk/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmtt9.pfb>
 Output written on "C:/Users\elksk\Documents\rimeligt legit skolesager\Programme
-ringsprojekter\SIN\exam-sin-synopsis\out\main.pdf" (12 pages, 290534 bytes).
+ringsprojekter\SIN\exam-sin-synopsis\out\main.pdf" (12 pages, 290873 bytes).
 PDF statistics:
  253 PDF objects out of 1000 (max. 8388607)
  41 named destinations out of 1000 (max. 500000)

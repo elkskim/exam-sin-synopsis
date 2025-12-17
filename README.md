@@ -36,3 +36,56 @@ CI/CD environment.
 This should hopefully work, as a synopsis on the benefits of CI/CD
 would be inflated real fast if I have to say
 "well, it works on my machine!"
+
+## A Note on the Danish Translation - December 17th, 2025
+
+This has been the subject of some frustration, 
+and after speaking to my peers, and writing about
+twenty expletives in this section,
+I eventually let my anger condense into a small,
+much funnier monologue. Enjoy.
+
+### The Bureaucratic Labyrinth of Language Requirements
+
+*[Lights cigarette with trembling hands]*
+
+You see this? This `Danish_Translation/` directory? This is what happens when the administrative apparatus—
+that great, grinding machine of forms and procedures—*finally* reveals its true nature. 
+Not through malice, mind you. No, no. Through something far more insidious: 
+*incompetent indifference*.
+
+Every lecture? English. Every assignment? English. The synopsis template itself? 
+*Beautifully* English. The very **guidelines** that tell you how to structure your thoughts? 
+English, my friend. *All of it*. 
+
+And yet—*and yet*—somewhere in the bowels of this institution, 
+some functionary decided: "The final document? Ah yes, that must be in Danish."
+
+Do you understand the dialectical contradiction here? The question posed in one tongue, 
+the answer demanded in another? It's Kafkaesque. No—it's *beyond* Kafka. 
+Even he would have rejected this as too on-the-nose.
+
+I have placed the translation in its own directory. Not in a branch—oh no. 
+A branch would suggest this decision deserves *organizational respect*. 
+A separate directory is what it deserves: *segregation*. *Quarantine*. 
+Like a document infected with bureaucratic madness.
+
+Was there instruction for this? *Clear* instruction? Of course not. 
+That would require the system to acknowledge its own absurdity. 
+Instead, we divine the will of the institution like ancient priests reading entrails.
+
+This is not personal. Not against any one teacher or administrator. 
+They are merely—*we are all merely*—cogs in the machine. 
+But by god, the machine is *broken*, and I'm sitting here at 2 AM translating 
+my own work because apparently that's what passes for pedagogy now.
+
+*[Takes long drag]*
+
+You want the synopsis as it should be? The English version remains, unmolested by this farce, 
+in `out/main.pdf`. You want to see what compliance with absurdity looks like? 
+Check `Danish_Translation/out/main.pdf`. Either way, you're reading the same work—
+just one version has been run through the bureaucratic meat grinder first.
+
+*[Stares into middle distance]*
+
+The future is already here. It's just in the wrong goddamn language.
