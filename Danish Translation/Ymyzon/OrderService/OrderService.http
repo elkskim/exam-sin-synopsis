@@ -1,0 +1,47 @@
+@OrderService_HostAddress = http://localhost:5025
+
+### Health Check
+GET {{OrderService_HostAddress}}/api/order/health
+Accept: application/json
+
+###
+
+### Create Order - Laptop
+POST {{OrderService_HostAddress}}/api/order/create
+Content-Type: application/json
+
+{
+  "id": 1,
+  "productName": "Laptop",
+  "quantity": 5,
+  "price": 1299.99
+}
+
+###
+
+### Create Order - Mouse
+POST {{OrderService_HostAddress}}/api/order/create
+Content-Type: application/json
+
+{
+  "id": 2,
+  "productName": "Mouse",
+  "quantity": 10,
+  "price": 29.99
+}
+
+###
+
+### Create Order - Keyboard
+POST {{OrderService_HostAddress}}/api/order/create
+Content-Type: application/json
+
+{
+  "id": 3,
+  "productName": "Keyboard",
+  "quantity": 8,
+  "price": 79.99
+}
+
+###
+

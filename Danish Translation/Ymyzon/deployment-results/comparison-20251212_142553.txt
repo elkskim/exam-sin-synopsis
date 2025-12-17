@@ -1,0 +1,57 @@
+========================================
+Deployment Comparison Analysis
+========================================
+Date: Fri Dec 12 14:25:53 RST 2025
+
+Test Configuration:
+- System: Ymyzon Microservices (2 services + RabbitMQ)
+- Services: OrderService, InventoryService
+- Messaging: RabbitMQ
+- Platform: Docker + .NET 9
+
+========================================
+
+MANUAL DEPLOYMENT RESULTS
+========================================
+Number of runs:     3
+Total time:         898s
+Average time:       299s (m)
+Total errors:       2
+Average errors:      per run
+Steps per deploy:   12
+Human interaction:  Required for all 12 steps
+
+Individual runs:
+  Run 1: 438s, 2 errors
+  Run 2: 279s, 0 errors
+  Run 3: 181s, 0 errors
+
+AUTOMATED DEPLOYMENT RESULTS
+========================================
+Number of runs:     3
+Total time:         157s
+Average time:       52s (m)
+Total errors:       3
+Average errors:      per run
+Steps automated:    100%
+Human interaction:  1 command only
+
+Individual runs:
+  Run 1: 52s, 1 errors
+  Run 2: 52s, 1 errors
+  Run 3: 53s, 1 errors
+
+COMPARISON & IMPROVEMENTS
+========================================
+Time saved:         247s per deployment
+Time improvement:   % faster
+Error reduction:     fewer errors per deployment
+Consistency:        Automated = reproducible, Manual = variable
+
+Key Findings:
+- Automated deployment requires % less time
+- Reduced from 12 manual steps to 1 command
+- Human error potential eliminated
+- Deployment process is reproducible and consistent
+
+========================================

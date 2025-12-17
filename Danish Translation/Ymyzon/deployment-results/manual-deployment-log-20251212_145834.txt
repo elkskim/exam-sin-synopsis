@@ -1,0 +1,51 @@
+=========================================
+Manual Deployment Test - 20251212_145834
+=========================================
+
+[1] Stop existing services
+    Duration: 16 seconds
+
+[2] Clean Docker containers
+    Duration: 27 seconds
+
+[3] Remove existing RabbitMQ container (if any)
+    Duration: 4 seconds
+
+[4] Start RabbitMQ
+    Duration: 12 seconds
+
+[5] Wait for RabbitMQ initialization
+    Duration: 24 seconds
+
+[6] Navigate to InventoryService directory
+    Duration: 4 seconds
+
+[7] Start InventoryService
+    Duration: 10 seconds
+
+[8] Navigate to OrderService directory
+    Duration: 2 seconds
+
+[9] Start OrderService
+    Duration: 14 seconds
+
+[10] Wait for services to initialize
+    Duration: 2 seconds
+
+[11] Test InventoryService health
+    Duration: 11 seconds
+
+[12] Test OrderService health
+    Duration: 12 seconds
+
+[13] Test order creation
+    Duration: 19 seconds
+
+=========================================
+Manual Deployment Summary
+=========================================
+Total Steps:     13
+Total Errors:    0
+Total Time:      157 seconds (2 minutes)
+Error Rate:      0%
+=========================================
