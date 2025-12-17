@@ -92,11 +92,11 @@ public class RabbitMQConsumer : BackgroundService
         }
     }
 
-    public override void Dispose()
+    public override async ValueTask DisposeAsync()
     {
-        _channel?.Dispose();
-        _connection?.Dispose();
-        base.Dispose();
+        if (_channel != null) await _channel.CloseAsync();
+        if (_connection != null) await _connection.CloseAsync();
+        await base.DisposeAsync();
     }
 
     private class OrderMessage

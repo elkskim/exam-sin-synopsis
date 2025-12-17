@@ -221,79 +221,27 @@ Automated Steps: █ 1 command
 
 ---
 
-## GitHub Actions CI/CD Extension
+## Next Steps for Synopsis
 
-### ✅ IMPLEMENTED - Full CI/CD Pipeline
+### Phase 3: GitHub Actions CI/CD ✨
 
-GitHub Actions workflows have been created to extend the comparison with cloud-based CI/CD.
+Now that you have baseline data, extend to full CI/CD:
 
-**Files added:**
-- `.github/workflows/ci-cd.yml` - Standard CI/CD pipeline
-- `.github/workflows/measure-cicd.yml` - Performance measurement pipeline
-- `GITHUB_ACTIONS_GUIDE.md` - Complete usage guide
+1. **Create GitHub Actions workflow**
+   - Automate on git push
+   - Build → Test → Deploy pipeline
+   - Measure end-to-end time
 
-### Three-Way Comparison (After GitHub Actions Data)
+2. **Compare three approaches:**
+   - Manual: 196s
+   - Local Docker automation: 54s
+   - GitHub Actions CI/CD: ?s
 
-| Approach | Time | Setup | Automation | Best For |
-|----------|------|-------|------------|----------|
-| **Manual** | 196s | None | None | Learning/understanding |
-| **Local Docker** | 54s | Local scripts | Local only | Fast iteration |
-| **GitHub Actions** | ~100-120s* | GitHub repo | Full (every push) | Team collaboration |
-
-*Expected based on typical GitHub runner performance. Run workflows to get actual data.
-
-### How to Collect GitHub Actions Data
-
-1. **Commit workflows:**
-   ```bash
-   git add .github/
-   git commit -m "Add CI/CD pipelines"
-   git push origin main
-   ```
-
-2. **Run measurement workflow 3 times:**
-   - Go to GitHub → Actions → "CI/CD with Performance Measurement"
-   - Click "Run workflow" (or push commits to trigger)
-   - Download performance reports from artifacts
-
-3. **Record times in your synopsis:**
-   - Build phase: ~20-30s
-   - Docker phase: ~40-60s
-   - Deploy phase: ~30-40s
-   - Test phase: ~5-10s
-   - **Total: ~100-120s**
-
-### Extended Analysis
-
-#### Speed Comparison
-- **Manual → Local Docker:** 72.45% faster
-- **Manual → GitHub Actions:** ~40-50% faster
-- **Local Docker vs GitHub Actions:** Local is 2x faster, but requires local setup
-
-#### Trade-offs
-
-**Local Docker Wins:**
-- ✅ Fastest execution (54s)
-- ✅ No network latency
-- ✅ Cached builds
-- ❌ Requires local setup
-- ❌ No team automation
-
-**GitHub Actions Wins:**
-- ✅ Zero local setup
-- ✅ Team access (entire team can deploy)
-- ✅ Automatic on every commit
-- ✅ Fresh environment every time
-- ✅ Audit trail and history
-- ❌ Slower than local (shared runners)
-
-### Synopsis Integration - Extended
-
-**Updated Conclusion:**
-> "Three deployment approaches were evaluated: manual (196s), local Docker automation (54s), and GitHub Actions CI/CD (~120s). While local automation provides maximum speed, cloud-based CI/CD offers the best balance of automation, team collaboration, and environment consistency. The choice depends on project phase: local automation for rapid development iteration, GitHub Actions for team coordination and continuous integration."
-
-**Key Insight:**
-> "Even with GitHub Actions' ~2x longer execution time compared to local Docker, it still provides ~40% improvement over manual deployment while adding team collaboration, automatic testing on every commit, and zero local setup requirements. This demonstrates that CI/CD benefits extend beyond pure speed metrics."
+3. **Additional benefits to measure:**
+   - Automatic testing on every commit
+   - Team collaboration (no local setup needed)
+   - Deployment history and rollback
+   - Integration with GitHub ecosystem
 
 ### Phase 4: Documentation & Presentation
 

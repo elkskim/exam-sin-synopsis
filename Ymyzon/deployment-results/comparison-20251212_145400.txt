@@ -16,8 +16,8 @@ MANUAL DEPLOYMENT RESULTS
 Number of runs:     3
 Total time:         589s
 Average time:       196s (3.27 minutes)
-Total errors:       0
-Average errors:     0.0 per run
+Total errors:       2
+Average errors:     0.66 per run
 Steps per deploy:   13
 Human interaction:  Required for all 13 steps
 
@@ -45,7 +45,7 @@ COMPARISON & IMPROVEMENTS
 ========================================
 Time saved:         142s per deployment (2.37 minutes)
 Time improvement:   72.45% faster
-Error reduction:    0.0 fewer errors per deployment
+Error reduction:    0.66 fewer errors per deployment
 Consistency:        Automated = reproducible, Manual = variable
 
 Manual deployment variance: 105s (262s max, 157s min) - HIGH VARIABILITY

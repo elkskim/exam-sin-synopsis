@@ -1,0 +1,63 @@
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.synctex(busy)
+*.fdb_latexmk
+*.fls
+*.bcf
+*.run.xml
+*.bbl
+*.blg
+
+# IDE files
+.idea/
+*.swp
+*.swo
+*~
+
+# Windows
+nul
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Build artifacts
+out/*.aux
+out/*.log
+out/*.out
+out/*.toc
+out/*.synctex.gz
+out/*.bcf
+out/*.run.xml
+out/*.bbl
+out/*.blg
+
+# Keep the actual PDF output
+!out/main.pdf
+
+# Auxiliary directory
+auxil/*.aux
+auxil/*.log
+auxil/*.out
+auxil/*.toc
+auxil/*.bcf
+auxil/*.run.xml
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# .NET
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+
+# Keep references.bib in out directory
+!out/references.bib
+

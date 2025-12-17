@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.4)  10 DEC 2025 16:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.4)  17 DEC 2025 15:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -348,47 +348,320 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 (C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/parskip\parskip.sty
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
 )
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty
+Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks27
+\verbatim@line=\toks28
+\verbatim@in@stream=\read3
+)
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.sty
+Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
+
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count312
+
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+))
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\c@tabx@nest=\count313
+\c@listtotal=\count314
+\c@listcount=\count315
+\c@liststart=\count316
+\c@liststop=\count317
+\c@citecount=\count318
+\c@citetotal=\count319
+\c@multicitecount=\count320
+\c@multicitetotal=\count321
+\c@instcount=\count322
+\c@maxnames=\count323
+\c@minnames=\count324
+\c@maxitems=\count325
+\c@minitems=\count326
+\c@citecounter=\count327
+\c@maxcitecounter=\count328
+\c@savedcitecounter=\count329
+\c@uniquelist=\count330
+\c@uniquename=\count331
+\c@refsection=\count332
+\c@refsegment=\count333
+\c@maxextratitle=\count334
+\c@maxextratitleyear=\count335
+\c@maxextraname=\count336
+\c@maxextradate=\count337
+\c@maxextraalpha=\count338
+\c@abbrvpenalty=\count339
+\c@highnamepenalty=\count340
+\c@lownamepenalty=\count341
+\c@maxparens=\count342
+\c@parenlevel=\count343
+\blx@tempcnta=\count344
+\blx@tempcntb=\count345
+\blx@tempcntc=\count346
+\c@blx@maxsection=\count347
+\blx@maxsegment@0=\count348
+\blx@notetype=\count349
+\blx@parenlevel@text=\count350
+\blx@parenlevel@foot=\count351
+\blx@sectionciteorder@0=\count352
+\blx@sectionciteorderinternal@0=\count353
+\blx@entrysetcounter=\count354
+\blx@biblioinstance=\count355
+\labelnumberwidth=\skip69
+\labelalphawidth=\skip70
+\biblabelsep=\skip71
+\bibitemsep=\skip72
+\bibnamesep=\skip73
+\bibinitsep=\skip74
+\bibparsep=\skip75
+\bibhang=\skip76
+\blx@bcfin=\read4
+\blx@bcfout=\write3
+\blx@langwohyphens=\language80
+\c@mincomprange=\count356
+\c@maxcomprange=\count357
+\c@mincompwidth=\count358
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-dm.def
+File: blx-dm.def 2025/07/10 v3.21 biblatex datamodel (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'ieee.dbx' not found.
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count359
+\c@savedafterword=\count360
+\c@annotator=\count361
+\c@savedannotator=\count362
+\c@author=\count363
+\c@savedauthor=\count364
+\c@bookauthor=\count365
+\c@savedbookauthor=\count366
+\c@commentator=\count367
+\c@savedcommentator=\count368
+\c@editor=\count369
+\c@savededitor=\count370
+\c@editora=\count371
+\c@savededitora=\count372
+\c@editorb=\count373
+\c@savededitorb=\count374
+\c@editorc=\count375
+\c@savededitorc=\count376
+\c@foreword=\count377
+\c@savedforeword=\count378
+\c@holder=\count379
+\c@savedholder=\count380
+\c@introduction=\count381
+\c@savedintroduction=\count382
+\c@namea=\count383
+\c@savednamea=\count384
+\c@nameb=\count385
+\c@savednameb=\count386
+\c@namec=\count387
+\c@savednamec=\count388
+\c@translator=\count389
+\c@savedtranslator=\count390
+\c@shortauthor=\count391
+\c@savedshortauthor=\count392
+\c@shorteditor=\count393
+\c@savedshorteditor=\count394
+\c@labelname=\count395
+\c@savedlabelname=\count396
+\c@institution=\count397
+\c@savedinstitution=\count398
+\c@lista=\count399
+\c@savedlista=\count400
+\c@listb=\count401
+\c@savedlistb=\count402
+\c@listc=\count403
+\c@savedlistc=\count404
+\c@listd=\count405
+\c@savedlistd=\count406
+\c@liste=\count407
+\c@savedliste=\count408
+\c@listf=\count409
+\c@savedlistf=\count410
+\c@location=\count411
+\c@savedlocation=\count412
+\c@organization=\count413
+\c@savedorganization=\count414
+\c@origlocation=\count415
+\c@savedoriglocation=\count416
+\c@origpublisher=\count417
+\c@savedorigpublisher=\count418
+\c@publisher=\count419
+\c@savedpublisher=\count420
+\c@language=\count421
+\c@savedlanguage=\count422
+\c@origlanguage=\count423
+\c@savedoriglanguage=\count424
+\c@pageref=\count425
+\c@savedpageref=\count426
+\shorthandwidth=\skip77
+\shortjournalwidth=\skip78
+\shortserieswidth=\skip79
+\shorttitlewidth=\skip80
+\shortauthorwidth=\skip81
+\shorteditorwidth=\skip82
+\locallabelnumberwidth=\skip83
+\locallabelalphawidth=\skip84
+\localshorthandwidth=\skip85
+\localshortjournalwidth=\skip86
+\localshortserieswidth=\skip87
+\localshorttitlewidth=\skip88
+\localshortauthorwidth=\skip89
+\localshorteditorwidth=\skip90
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-compat.def
+File: blx-compat.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+ (C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.def
+File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
+\c@textcitecount=\count427
+\c@textcitetotal=\count428
+\c@textcitemaxnames=\count429
+\c@biburlbigbreakpenalty=\count430
+\c@biburlbreakpenalty=\count431
+\c@biburlnumpenalty=\count432
+\c@biburlucpenalty=\count433
+\c@biburllcpenalty=\count434
+\biburlbigskip=\muskip19
+\biburlnumskip=\muskip20
+\biburlucskip=\muskip21
+\biburllcskip=\muskip22
+\c@smartand=\count435
+)
+Package biblatex Info: Trying to load bibliography style 'ieee'...
+Package biblatex Info: ... file 'ieee.bbx' found.
+
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-ieee\ieee.bbx
+File: ieee.bbx 2025-08-01 v1.4f biblatex bibliography style
+Package biblatex Info: Trying to load bibliography style 'numeric-comp'...
+Package biblatex Info: ... file 'numeric-comp.bbx' found.
+
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\numeric-co
+mp.bbx
+File: numeric-comp.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\numeric.bb
+x
+File: numeric.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\standard.b
+bx
+File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count436
+\c@bbx:relatedtotal=\count437
+))))
+Package biblatex Info: Trying to load citation style 'ieee'...
+Package biblatex Info: ... file 'ieee.cbx' found.
+
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-ieee\ieee.cbx
+File: ieee.cbx 2025-08-01 v1.4f biblatex citation style
+Package biblatex Info: Trying to load citation style 'numeric-verb'...
+Package biblatex Info: ... file 'numeric-verb.cbx' found.
+
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/cbx\numeric-ve
+rb.cbx
+File: numeric-verb.cbx 2025/07/10 v3.21 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+Package biblatex Info: Redefining '\textcites'.
+))
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.cfg
+File: biblatex.cfg 
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Document encoding is UTF8 ....
+
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2025-11-06 L3 programming layer (loader) 
+
 (C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count312
+\l__color_backend_stack_int=\count438
+))
+Package biblatex Info: ... and expl3
+(biblatex)             2025-11-06 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-case-expl3
+.sty
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xpars
+e.sty
+Package: xparse 2025-10-09 L3 Experimental document command parser
 )
-No file main.aux.
+Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
+))
+
+Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
+(biblatex)                Loading 'csquotes' recommended.
+
+\@quotelevel=\count439
+\@quotereset=\count440
+
+(C:/Users\elksk\Documents\rimeligt legit skolesager\Programmeringsprojekter\SIN
+\exam-sin-synopsis\out\main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
 
 (C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count313
+\scratchcounter=\count441
 \scratchdimen=\dimen173
 \scratchbox=\box55
-\nofMPsegments=\count314
-\nofMParguments=\count315
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count316
+\nofMPsegments=\count442
+\nofMParguments=\count443
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count444
 \MPscratchDim=\dimen174
-\MPnumerator=\count317
-\makeMPintoPDFobject=\count318
-\everyMPtoPDFconversion=\toks28
+\MPnumerator=\count445
+\makeMPintoPDFobject=\count446
+\everyMPtoPDFconversion=\toks30
 )
 (C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -400,9 +673,14 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 25.
-\@outlinefile=\write3
-\openout3 = `main.out'.
+Package hyperref Info: Link coloring OFF on input line 28.
+
+(C:/Users\elksk\Documents\rimeligt legit skolesager\Programmeringsprojekter\SIN
+\exam-sin-synopsis\out\main.out)
+(C:/Users\elksk\Documents\rimeligt legit skolesager\Programmeringsprojekter\SIN
+\exam-sin-synopsis\out\main.out)
+\@outlinefile=\write4
+\openout4 = `main.out'.
 
 
 *geometry* driver: auto-detecting
@@ -439,13 +717,48 @@ Package hyperref Info: Link coloring OFF on input line 25.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-No file main.toc.
-\tf@toc=\write4
-\openout4 = `main.toc'.
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
 
-[1
+(C:\Users\elksk\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\english.lb
+x
+File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout3 = `main.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'main.bbl' found.
+
+(C:/Users\elksk\Documents\rimeligt legit skolesager\Programmeringsprojekter\SIN
+\exam-sin-synopsis\out\main.bbl)
+Package biblatex Info: Reference section=0 on input line 28.
+Package biblatex Info: Reference segment=0 on input line 28.
+ [1
 
 {C:/Users/elksk/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+(C:/Users\elksk\Documents\rimeligt legit skolesager\Programmeringsprojekter\SIN
+\exam-sin-synopsis\out\main.toc)
+\tf@toc=\write5
+\openout5 = `main.toc'.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.58 \newpage
+              [1]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -454,39 +767,127 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [2]
+<Assets/Images/DORA figure 1.jpg, id=126, 610.53094pt x 365.86688pt>
+File: Assets/Images/DORA figure 1.jpg Graphic file (type jpg)
+<use Assets/Images/DORA figure 1.jpg>
+Package pdftex.def Info: Assets/Images/DORA figure 1.jpg  used on input line 11
+5.
+(pdftex.def)             Requested size: 364.19667pt x 218.25455pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[3 <./Assets/Images/DORA figure 1.jpg>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[4]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[5]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[6]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[7]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[8]
+File: "Ymyzon/deployment-results/comparison-20251212_145400.txt"  (verbatim)
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[9]
+File: "Ymyzon/deployment-results/cicd-performance.txt"  (verbatim)
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[10]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[11]
 (C:/Users\elksk\Documents\rimeligt legit skolesager\Programmeringsprojekter\SIN
-\exam-sin-synopsis\auxil\main.aux)
+\exam-sin-synopsis\out\main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 58C831203C1DACA288E2375812F16342;3026.
+Package logreq Info: Writing requests to 'main.run.xml'.
+\openout1 = `main.run.xml'.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  F82C083371D67A1F19091876E29E24EA;731.
  ) 
 Here is how much of TeX's memory you used:
- 11057 strings out of 467871
- 176295 string characters out of 5418376
- 603686 words of memory out of 5000000
- 39813 multiletter control sequences out of 15000+600000
- 632335 words of font info for 56 fonts, out of 8000000 for 9000
+ 18607 strings out of 467871
+ 331298 string characters out of 5418376
+ 1186951 words of memory out of 5000000
+ 47245 multiletter control sequences out of 15000+600000
+ 636765 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,79p,499b,465s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/elksk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmbx12.pfb><C:/Users/elksk/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmr10.pfb><C:/Users/elksk/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmr12.pfb><C:/Users/elksk/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmr17.pfb>
+ 75i,11n,79p,695b,1868s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\elksk\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
+1095.pk><C:/Users/elksk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmbx10.pfb><C:/Users/elksk/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmbx12.pfb><C:/Users/elksk/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb><C:/Users/elksk/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/elksk/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/elksk/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/elksk/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/elksk/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Use
+rs/elksk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pf
+b><C:/Users/elksk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmtt10.pfb><C:/Users/elksk/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmtt9.pfb>
 Output written on "C:/Users\elksk\Documents\rimeligt legit skolesager\Programme
-ringsprojekter\SIN\exam-sin-synopsis\out\main.pdf" (2 pages, 61881 bytes).
+ringsprojekter\SIN\exam-sin-synopsis\out\main.pdf" (12 pages, 290534 bytes).
 PDF statistics:
- 44 PDF objects out of 1000 (max. 8388607)
- 10 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 253 PDF objects out of 1000 (max. 8388607)
+ 41 named destinations out of 1000 (max. 500000)
+ 150 words of extra memory for PDF output out of 10000 (max. 10000000)
 
